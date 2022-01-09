@@ -19,8 +19,10 @@ private:
 		void SpawnMeme();
 		bool HasMeme() const;
 		void Draw(const Vei2& screenPos, Graphics& gfx) const;
+		void Reveal();
+		bool IsRevealed() const;
 	private:
-		bool hasMeme;
+		bool hasMeme = false;
 		State state = State::Hidden;
 	};
 
