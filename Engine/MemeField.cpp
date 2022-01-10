@@ -201,14 +201,11 @@ void MemeField::OnFlagClick( const Vei2 & screenPos )
 bool MemeField::CheckForWin()
 {
 	int revealedCount = 0;
-	for (int y = 0; y < height; ++y)
+	for (const Tile& tile : field)
 	{
-		for (int x = 0; x < width; ++x)
+		if (tile.IsRevealed())
 		{
-			if (field[y * width + x].IsRevealed())
-			{
-				revealedCount++;
-			}
+			revealedCount++;
 		}
 	}
 	if (revealedCount == width * height - memes && !isFucked)

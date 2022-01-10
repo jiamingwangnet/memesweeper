@@ -43,8 +43,8 @@ private:
 	int CountNeighborMemes( const Vei2& gridPos );
 	void DrawBorder(int size, Color c, Graphics& gfx) const;
 private:
-	static constexpr int width = 7;
-	static constexpr int height = 5;
+	static constexpr int width = 20;
+	static constexpr int height = 16;
 	bool isFucked = false;
 	Tile field[width * height];
 	int memes;
