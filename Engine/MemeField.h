@@ -41,6 +41,7 @@ private:
 	const Tile& TileAt( const Vei2& gridPos ) const;
 	Vei2 ScreenToGrid( const Vei2& screenPos );
 	int CountNeighborMemes( const Vei2& gridPos );
+	void DrawBorder(int size, Color c, Graphics& gfx) const;
 private:
 	static constexpr int width = 7;
 	static constexpr int height = 5;
@@ -48,6 +49,9 @@ private:
 	Tile field[width * height];
 	int memes;
 	bool hasWon = false;
+
+	static constexpr int borderSize = 10;
+	static constexpr Color borderColor = Colors::Blue;
 
 	const int pixelWidth = SpriteCodex::tileSize * width;
 	const int pixelHeight = SpriteCodex::tileSize * height;

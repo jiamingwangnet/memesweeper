@@ -149,6 +149,7 @@ MemeField::MemeField( int nMemes )
 
 void MemeField::Draw( Graphics& gfx ) const
 {
+	DrawBorder(borderSize, borderColor, gfx);
 	gfx.DrawRect(GetRect(), SpriteCodex::baseColor);
 
 	for( Vei2 gridPos = {0, 0}; gridPos.y < height; gridPos.y++ )
@@ -216,6 +217,14 @@ bool MemeField::CheckForWin()
 	}
 
 	return hasWon;
+}
+
+void MemeField::DrawBorder(int size, Color c, Graphics& gfx) const
+{
+	RectI fieldRect = GetRect();
+	RectI borderRect = RectI(fieldRect.left - size, fieldRect.right + size, fieldRect.top - size, fieldRect.bottom + size);
+
+	gfx.DrawRect(borderRect, c);
 }
 
 MemeField::Tile& MemeField::TileAt( const Vei2& gridPos )

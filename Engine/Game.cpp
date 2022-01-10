@@ -64,6 +64,7 @@ void Game::UpdateModel()
 void Game::ComposeFrame()
 {
 	field.Draw( gfx );
+	
 	if (field.CheckForWin())
 	{
 		SpriteCodex::DrawWin(Vei2(200, 200), gfx);
