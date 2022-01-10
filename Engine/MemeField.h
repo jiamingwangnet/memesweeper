@@ -55,6 +55,5 @@ private:
 
 	const int pixelWidth = SpriteCodex::tileSize * width;
 	const int pixelHeight = SpriteCodex::tileSize * height;
-	const int centerX = Graphics::ScreenWidth / 2 - pixelWidth / 2;
-	const int centerY = Graphics::ScreenHeight / 2 - pixelHeight / 2;
+	const Vei2 center = Vei2(Graphics::ScreenWidth / 2 - pixelWidth / 2, Graphics::ScreenHeight / 2 - pixelHeight / 2);
 };

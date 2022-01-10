@@ -156,14 +156,14 @@ void MemeField::Draw( Graphics& gfx ) const
 	{
 		for( gridPos.x = 0; gridPos.x < width; gridPos.x++ )
 		{
-			TileAt(gridPos).Draw((gridPos * SpriteCodex::tileSize) + Vei2(centerX, centerY), isFucked, gfx);
+			TileAt(gridPos).Draw((gridPos * SpriteCodex::tileSize) + center, isFucked, gfx);
 		}
 	}
 }
 
 RectI MemeField::GetRect() const
 {
-	return RectI(centerX,width * SpriteCodex::tileSize + centerX, centerY,height * SpriteCodex::tileSize + centerY);
+	return RectI(center.x,width * SpriteCodex::tileSize + center.x, center.y,height * SpriteCodex::tileSize + center.y);
 }
 
 void MemeField::OnRevealClick( const Vei2& screenPos )
@@ -239,7 +239,7 @@ const MemeField::Tile& MemeField::TileAt( const Vei2 & gridPos ) const
 
 Vei2 MemeField::ScreenToGrid( const Vei2 & screenPos )
 {
-	return (screenPos - Vei2(centerX, centerY)) / SpriteCodex::tileSize;
+	return (screenPos - center) / SpriteCodex::tileSize;
 }
 
 int MemeField::CountNeighborMemes( const Vei2 & gridPos )
