@@ -25,7 +25,7 @@ Game::Game( MainWindow& wnd )
 	:
 	wnd( wnd ),
 	gfx( wnd ),
-	field( 20 )
+	field( 5 )
 {
 }
 
@@ -64,4 +64,8 @@ void Game::UpdateModel()
 void Game::ComposeFrame()
 {
 	field.Draw( gfx );
+	if (field.CheckForWin())
+	{
+		SpriteCodex::DrawWin(Vei2(200, 200), gfx);
+	}
 }

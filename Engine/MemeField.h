@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Graphics.h"
+#include "SpriteCodex.h"
 
 class MemeField
 {
@@ -34,14 +35,22 @@ public:
 	RectI GetRect() const;
 	void OnRevealClick( const Vei2& screenPos );
 	void OnFlagClick( const Vei2& screenPos );
+	bool CheckForWin();
 private:
 	Tile& TileAt( const Vei2& gridPos );
 	const Tile& TileAt( const Vei2& gridPos ) const;
 	Vei2 ScreenToGrid( const Vei2& screenPos );
 	int CountNeighborMemes( const Vei2& gridPos );
 private:
-	static constexpr int width = 20;
-	static constexpr int height = 16;
+	static constexpr int width = 7;
+	static constexpr int height = 5;
 	bool isFucked = false;
 	Tile field[width * height];
+	int memes;
+	bool hasWon = false;
+
+	const int pixelWidth = SpriteCodex::tileSize * width;
+	const int pixelHeight = SpriteCodex::tileSize * height;
+	const int centerX = Graphics::ScreenWidth / 2 - pixelWidth / 2;
+	const int centerY = Graphics::ScreenHeight / 2 - pixelHeight / 2;
 };
